@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    >
+<data>
+<variable
+    name="uiListener"
+    type="org.qusai.qusaiandroid.mvvm.listener.UiListner" />
+    <variable
+        name="loginViewModel"
+        type="org.qusai.qusaiandroid.mvvm.ui.login_view_model.LoginViewModel" />
+<variable
+    name="listener"
+    type="org.qusai.qusaiandroid.mvvm.listener.ApiListener"/>
+</data>
+    <LinearLayout
+
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.login_view.MainActivity">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/userName"
+            android:hint="userName"
+
+            android:text="@{loginViewModel.userNames}"
+
+            ></EditText>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/pass"
+            android:inputType="textPassword"
+            android:text="@{loginViewModel.pass}"
+            android:hint="password"
+            ></EditText>
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/login"
+            android:text="login"
+            android:textAllCaps="false"
+            android:onClick="@{view-> loginViewModel.loginApi(listener)}"
+
+            ></Button>
+    </LinearLayout>
+</layout>
